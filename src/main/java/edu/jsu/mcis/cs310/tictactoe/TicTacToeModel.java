@@ -106,6 +106,7 @@ public class TicTacToeModel {
     * if it is not
     */
     private boolean isValidSquare(int row, int col) {
+        this.row 
         
         // INSERT YOUR CODE HERE
         

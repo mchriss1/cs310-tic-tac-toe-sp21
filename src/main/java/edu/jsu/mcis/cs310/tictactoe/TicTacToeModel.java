@@ -57,8 +57,8 @@ public class TicTacToeModel {
         /* Initialize board (fill with TicTacToeSquare.EMPTY) */
        
                                                     // INSERT YOUR CODE HERE
-        //TicTacToeSquare board =  TicTacToeSquare.EMPTY;
-      //  this.board = board;
+                                        //TicTacToeSquare board =  TicTacToeSquare.EMPTY;
+                                      //  this.board = board;
          }
          }   
     }
@@ -79,12 +79,22 @@ public class TicTacToeModel {
     * @see         TicTacToeSquare
     */
     public boolean makeMark(int row, int col) {
+      
+                if (xTurn == true){
+                System.out.println("Player 1 (X) Move:\n" +
+"Enter the row and column numbers, separated by a space: ");
+                 }
+                else {
+                 System.out.println("Player 2 (O) Move:\n" +
+"Enter the row and column numbers, separated by a space: ");
+                }
         
         // INSERT YOUR CODE HERE
         
         return false; // this is a stub; you may need to remove it later!
         
-    }
+  
+            }
     
     /**
     * Checks if the specified square is within range (that is, within the bounds

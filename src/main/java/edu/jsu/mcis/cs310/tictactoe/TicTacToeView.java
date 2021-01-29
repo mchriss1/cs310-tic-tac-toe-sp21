@@ -1,6 +1,7 @@
 package edu.jsu.mcis.cs310.tictactoe;
 
 import java.util.Scanner;
+import java.util.*;
 
 /**
 * TicTacToeView implements a console-based View for the Tic-Tac-Toe game.

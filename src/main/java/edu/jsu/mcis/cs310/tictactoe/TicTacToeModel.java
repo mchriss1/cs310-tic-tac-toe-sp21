@@ -1,9 +1,11 @@
 package edu.jsu.mcis.cs310.tictactoe;
 
+import java.util.*;
+
 /**
 * TicTacToeModel implements the Model for the Tic-Tac-Toe game.
 *
-* @author  Your Name
+* @author  Martez Christian
 * @version 1.0
 */
 public class TicTacToeModel {
@@ -225,7 +227,7 @@ public class TicTacToeModel {
         
         StringBuilder output = new StringBuilder();
         
-        // INSERT YOUR CODE HERE
+        // INSERT YOUR CODE HERE    //.append
         
         return output.toString();
         

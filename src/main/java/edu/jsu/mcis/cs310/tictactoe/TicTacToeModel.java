@@ -51,12 +51,19 @@ public class TicTacToeModel {
         /* Create board as a 2D TicTacToeSquare array */
         
         board = new TicTacToeSquare[dimension][dimension];
-
+          for (int row = 0; row < 3; row++) {
+         for (int col = 0; col < 3; col++) {
+            board[row][col] = TicTacToeSquare.EMPTY;
         /* Initialize board (fill with TicTacToeSquare.EMPTY) */
-        
-        // INSERT YOUR CODE HERE
-        
+       
+                                                    // INSERT YOUR CODE HERE
+        //TicTacToeSquare board =  TicTacToeSquare.EMPTY;
+      //  this.board = board;
+         }
+         }   
     }
+
+   
     /**
     * Use isValidSquare(int, int) to check if the specified square is in range,
     * and use isSquareMarked(int, int) to check if the square is currently

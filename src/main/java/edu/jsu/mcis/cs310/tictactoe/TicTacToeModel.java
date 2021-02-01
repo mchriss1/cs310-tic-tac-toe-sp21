@@ -51,16 +51,19 @@ public class TicTacToeModel {
         /* Create board as a 2D TicTacToeSquare array */
         
         board = new TicTacToeSquare[dimension][dimension];
-          for (int row = 0; row < 3; row++) {
-         for (int col = 0; col < 3; col++) {
-            board[row][col] = TicTacToeSquare.EMPTY;
+         
         /* Initialize board (fill with TicTacToeSquare.EMPTY) */
        
-                                                    // INSERT YOUR CODE HERE
+          // INSERT YOUR CODE HERE
+         for(int row = 0; row < dimension; row++){
+                    for(int col = 0; col < dimension; col++){
+                        board[row][col] = TicTacToeSquare.EMPTY;
+                    }
+        }                                           
                                         //TicTacToeSquare board =  TicTacToeSquare.EMPTY;
                                       //  this.board = board;
-         }
-         }   
+         
+          
     }
 
    
@@ -80,18 +83,33 @@ public class TicTacToeModel {
     */
     public boolean makeMark(int row, int col) {
       
-                if (xTurn == true){
+               /* if (xTurn == true){
                 System.out.println("Player 1 (X) Move:\n" +
 "Enter the row and column numbers, separated by a space: ");
                  }
                 else {
                  System.out.println("Player 2 (O) Move:\n" +
 "Enter the row and column numbers, separated by a space: ");
+                }*/
+      if(isValidSquare(row,col) == true && isSquareMarked(row,col) == false){
+                if(isXTurn() == true){
+                    board[row][col] = TicTacToeSquare.X;
+                    xTurn = !xTurn;
+                    return true;
                 }
+                else{
+                    board[row][col] = TicTacToeSquare.O;
+                    xTurn = !xTurn;
+                    return true;
+                }
+            }
+            else{
+                return false;
+            }
         
         // INSERT YOUR CODE HERE
         
-        return false; // this is a stub; you may need to remove it later!
+        //return false; // this is a stub; you may need to remove it later!
         
   
             }
@@ -106,7 +124,7 @@ public class TicTacToeModel {
     * if it is not
     */
     private boolean isValidSquare(int row, int col) {
-        this.row 
+       
         
         // INSERT YOUR CODE HERE
         

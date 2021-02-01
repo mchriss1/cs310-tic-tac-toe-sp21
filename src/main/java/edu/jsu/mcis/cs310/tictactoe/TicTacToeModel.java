@@ -56,8 +56,9 @@ public class TicTacToeModel {
        
           // INSERT YOUR CODE HERE
          for(int r = 0; r < dimension; r++){
-                    for(int c = 0; c < dimension; c++){
-                        board[r][c] = TicTacToeSquare.EMPTY;
+             
+         for(int c = 0; c < dimension; c++){
+            board[r][c] = TicTacToeSquare.EMPTY;
                     }
         }                                           
                                         //TicTacToeSquare board =  TicTacToeSquare.EMPTY;
@@ -101,11 +102,12 @@ public class TicTacToeModel {
                     board[row][col] = TicTacToeSquare.O;
                     xTurn = !xTurn;
                     return true;
+                    }
                 }
-            }
-            else{
-                return false;
-            }
+      
+                else{
+                    return false;
+                }
         
         // INSERT YOUR CODE HERE
         
@@ -128,7 +130,7 @@ public class TicTacToeModel {
          boolean validSquare = false;
         if((row < dimension) && (row >= 0)){
 
-            if((col < dimension)&&(col >= 0)){
+        if((col < dimension)&&(col >= 0)){
                 validSquare = true;
             }
 
@@ -166,10 +168,10 @@ public class TicTacToeModel {
     * @see         TicTacToeSquare
     */
     public TicTacToeSquare getSquare(int row, int col) {
+    // INSERT YOUR CODE HERE
+     return board[row][col];
         
-        // INSERT YOUR CODE HERE
-        
-        return null; // this is a stub; you should remove it later!
+       // return null; // this is a stub; you should remove it later!
             
     }
     
@@ -182,10 +184,20 @@ public class TicTacToeModel {
     * @see         TicTacToeState
     */
     public TicTacToeState getState() {
-        
-        // INSERT YOUR CODE HERE
-        
-        return null; // this is a stub; you should remove it later!
+     // INSERT YOUR CODE HERE
+      if(isMarkWin(TicTacToeSquare.O)){
+            return TicTacToeState.O;
+        }
+        else if(isMarkWin(TicTacToeSquare.X)){
+            return TicTacToeState.X;
+        }
+        else if(isTie()){
+            return TicTacToeState.TIE;
+        }
+        else {
+            return TicTacToeState.NONE;
+        }   
+       // return null; // this is a stub; you should remove it later!
         
     }
     
@@ -198,10 +210,74 @@ public class TicTacToeModel {
     * @see          TicTacToeSquare
     */
     private boolean isMarkWin(TicTacToeSquare mark) {
+    // INSERT YOUR CODE HERE
+          boolean flag = true;
+
+		//Check column
+
+		for(int r = 0; r < dimension; r++){
+
+			for(int c = 0; c < dimension; c++){
+
+				if(board[c][r] != mark)
+
+					break;
+
+				
+
+				if(c == (dimension - 1) && board[c][r] == mark){
+
+					flag = false;
+                                }
+			}
+
+		}
+                
+                //Check row 
+		for(int r = 0; r < dimension; r++){
+
+			for(int c = 0; c < dimension; c++){
+
+				if(board[r][c] != mark)
+
+					break;
+				if(c == (dimension - 1) && board[r][c] == mark){
+
+					flag = false;
+                                }
+			}
+		}
+                
+                int control = 0;
+
+        for (int r = (dimension - 1); r > -1; r--){
+
+            if(board[r][control] != mark)
+                break;
+
+            if(r == 0 && control == (dimension - 1) && board[r][control] == mark)
+                flag = false;
+
+			control++;
+		 }
         
-        // INSERT YOUR CODE HERE
-        
-        return false; // this is a stub; you may need to remove it later!
+		//Check diagonal spaces
+		for(int r = 0; r < dimension; r++){
+
+			if(board[r][r] != mark){
+                break;}
+
+			if(r == (dimension - 1) && board[r][r] == mark){
+
+				flag = false;
+
+			}
+
+		}
+
+
+        return flag == false;
+        //  return false; // this is a stub; you may need to remove it later!
         
     }
     
@@ -212,10 +288,23 @@ public class TicTacToeModel {
     * @return  true if the game is currently a tie, or false otherwise
     */	
     private boolean isTie() {
-        
-        // INSERT YOUR CODE HERE
-        
-        return false; // this is a stub; you may need to remove it later!
+    // INSERT YOUR CODE HERE
+     boolean emptySquare = false;
+
+       for(int r = 0; r < dimension; r++){
+
+         for(int c = 0; c < dimension; c++){
+
+            if (board[r][c] == TicTacToeSquare.EMPTY){
+
+                emptySquare = true;
+
+                }
+            }
+        }    
+    
+        return emptySquare == false && (isMarkWin(TicTacToeSquare.O)==false || isMarkWin(TicTacToeSquare.X)==false);
+        //return false; // this is a stub; you may need to remove it later!
         
     }
 
@@ -270,9 +359,28 @@ public class TicTacToeModel {
     public String toString() {
         
         StringBuilder output = new StringBuilder();
+       // INSERT YOUR CODE HERE    //.append
+        for (int r = 0; r < dimension; ++r){
+            
+            output.append(r);
+        }
         
-        // INSERT YOUR CODE HERE    //.append
+        output.append("\n");
         
+        for(int r = 0; r < dimension; ++r) {
+            
+             output.append(r);
+             output.append(" ");
+          
+            for(int c = 0; c < dimension; ++c) {
+               
+                output.append("-");
+                  
+            }
+             
+             output.append("\n");
+        }
+     
         return output.toString();
         
     }

@@ -212,71 +212,59 @@ public class TicTacToeModel {
     private boolean isMarkWin(TicTacToeSquare mark) {
     // INSERT YOUR CODE HERE
           boolean flag = true;
+for(int r = 0; r < dimension; r++){
 
-		//Check column
+    for(int c = 0; c < dimension; c++){
 
-		for(int r = 0; r < dimension; r++){
+	if(board[c][r] != mark)
+            break;
 
-			for(int c = 0; c < dimension; c++){
-
-				if(board[c][r] != mark)
-
-					break;
-
-				
-
-				if(c == (dimension - 1) && board[c][r] == mark){
-
-					flag = false;
-                                }
-			}
-
-		}
+	if(c == (dimension - 1) && board[c][r] == mark){
+            flag = false;
+        }
+    }
+}
                 
-                //Check row 
-		for(int r = 0; r < dimension; r++){
 
-			for(int c = 0; c < dimension; c++){
+for(int r = 0; r < dimension; r++){
 
-				if(board[r][c] != mark)
+    for(int c = 0; c < dimension; c++){
 
-					break;
-				if(c == (dimension - 1) && board[r][c] == mark){
-
-					flag = false;
-                                }
-			}
-		}
-                
-                int control = 0;
-
-        for (int r = (dimension - 1); r > -1; r--){
-
-            if(board[r][control] != mark)
-                break;
-
-            if(r == 0 && control == (dimension - 1) && board[r][control] == mark)
-                flag = false;
-
-			control++;
-		 }
+        if(board[r][c] != mark)
+            break;
         
-		//Check diagonal spaces
-		for(int r = 0; r < dimension; r++){
+	if(c == (dimension - 1) && board[r][c] == mark){
 
-			if(board[r][r] != mark){
-                break;}
+            flag = false;
+        }
+    }
+}
+                
+int control = 0;
+for (int r = (dimension - 1); r > -1; r--){
 
-			if(r == (dimension - 1) && board[r][r] == mark){
+    if(board[r][control] != mark){
+        break;
+    }
+    
+    if(r == 0 && control == (dimension - 1) && board[r][control] == mark){
+        flag = false;
+    }
+	control++;
+ }
+        
+	
+for(int r = 0; r < dimension; r++){
 
-				flag = false;
+    if(board[r][r] != mark){
+         break;}
 
-			}
+    if(r == (dimension - 1) && board[r][r] == mark){
+        flag = false;
+    }
+}
 
-		}
-
-
-        return flag == false;
+return flag == false;
         //  return false; // this is a stub; you may need to remove it later!
         
     }
